@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".SplashActivity">
+
+    <ImageView
+        android:id="@+id/ivSunny"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/sunny"
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/ivSunnyWithClouds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/sunny_with_clouds"
+
+        android:visibility="invisible"/>
+
+
+    <ImageView
+        android:id="@+id/ivCloudy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/cloudy"
+
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/ivLightning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/lightning"
+
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/ivRaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/raining"
+
+        android:visibility="invisible"/>
+
+    <ImageView
+        android:id="@+id/ivSnow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="193dp"
+        android:background="@drawable/snow"
+
+        android:visibility="invisible"/>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
