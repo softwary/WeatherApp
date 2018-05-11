@@ -5,15 +5,15 @@ import com.google.gson.annotations.Expose;
 public class Main {
 
     @Expose
-    private Integer temp;
+    private Double temp;
     @Expose
-    private Integer pressure;
+    private Double pressure;
     @Expose
-    private Integer humidity;
+    private Double humidity;
     @Expose
-    private Integer tempMin;
+    private Double tempMin;
     @Expose
-    private Integer tempMax;
+    private Double tempMax;
 
     /**
      * No args constructor for use in serialization
@@ -30,7 +30,7 @@ public class Main {
      * @param temp
      * @param tempMin
      */
-    public Main(Integer temp, Integer pressure, Integer humidity, Integer tempMin, Integer tempMax) {
+    public Main(Double temp, Double pressure, Double humidity, Double tempMin, Double tempMax) {
         super();
         this.temp = temp;
         this.pressure = pressure;
@@ -39,43 +39,43 @@ public class Main {
         this.tempMax = tempMax;
     }
 
-    public Integer getTemp() {
+    public Double getTemp() {
         return temp;
     }
 
-    public void setTemp(Integer temp) {
+    public void setTemp(Double temp) {
         this.temp = temp;
     }
 
-    public Integer getPressure() {
+    public Double getPressure() {
         return pressure;
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(Double pressure) {
         this.pressure = pressure;
     }
 
-    public Integer getHumidity() {
+    public Double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(Integer humidity) {
+    public void setHumidity(Double humidity) {
         this.humidity = humidity;
     }
 
-    public Integer getTempMin() {
+    public Double getTempMin() {
         return tempMin;
     }
 
-    public void setTempMin(Integer tempMin) {
+    public void setTempMin(Double tempMin) {
         this.tempMin = tempMin;
     }
 
-    public Integer getTempMax() {
+    public Double getTempMax() {
         return tempMax;
     }
 
-    public void setTempMax(Integer tempMax) {
+    public void setTempMax(Double tempMax) {
         this.tempMax = tempMax;
     }
 
