@@ -23,4 +23,9 @@
     <string name="Winds">Winds</string>
     <string name="metric_units">metric</string>
     <string name="Error">Error: </string>
+    <string name="tvTemperature">Temperature: </string>
+    <string name="tvCity">City: </string>
+    <string name="tvCoordinates">Coordinates: </string>
+    <string name="tvVisibility">Visibility: </string>
+    <string name="tvWinds">Winds: </string>
 </resources>

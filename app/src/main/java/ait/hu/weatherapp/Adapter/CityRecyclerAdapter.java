@@ -19,7 +19,7 @@ import ait.hu.weatherapp.Data.AppDatabase;
 import ait.hu.weatherapp.Data.City;
 import ait.hu.weatherapp.MainActivity;
 import ait.hu.weatherapp.R;
-import ait.hu.weatherapp.WeatherDetails;
+import ait.hu.weatherapp.WeatherDetailsActivity;
 import ait.hu.weatherapp.touch.CityTouchHelperAdapter;
 
 
@@ -70,7 +70,7 @@ public class CityRecyclerAdapter
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), WeatherDetails.class);
+                Intent intent = new Intent(v.getContext(), WeatherDetailsActivity.class);
                 intent.putExtra("cityWeather", cityList.get(holder.getAdapterPosition()).getCityName());
                 context.startActivity(intent);
                 Log.i("clickDetails", "This is the city getting passed: "+

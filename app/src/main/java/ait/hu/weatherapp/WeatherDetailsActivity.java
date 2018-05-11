@@ -32,7 +32,7 @@ public class WeatherDetailsActivity extends AppCompatActivity {
 
 
     private static final String URL_BASE =
-            "http://api.openweathermap.org";
+            "http://api.openweathermap.org/";
     private static final String API_KEY =
             "86cf887e523a765ef156c39c05cf5eed";
 
@@ -41,6 +41,7 @@ public class WeatherDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_details);
+
 
 
         Intent intent = getIntent();
@@ -67,15 +68,34 @@ public class WeatherDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherResult> call, Response<WeatherResult> response) {
 
-                String temperature = "" + response.body().getMain().getTemp();
-                tvWDCity.setText(temperature);
+
+                String temperature = "" + response.body().getMain().getTemp().toString();
+                tvWDTemperature.setText(getString(R.string.tvTemperature) + temperature);
+
+
+
+
+                String coords = (String) "" + response.body().getCoord();
+                tvWDCoord.setText(getString(R.string.tvCoordinates) + coords);
+
+                String visibility = ""+ response.body().getVisibility().toString();
+                tvWDVisibility.setText(getString(R.string.tvVisibility) + visibility);
+
+
+                String winds = "" + response.body().getWind().toString();
+                tvWDWinds.setText(getString(R.string.tvWinds) +winds);
+
+
             }
 
             @Override
             public void onFailure(Call<WeatherResult> call, Throwable t) {
-                Snackbar.make(weather_details, getString(R.string.Error) + t.getMessage(), Snackbar.LENGTH_LONG)
+                Log.i("apiError","Error: "+getString(R.string.Error) + t.getMessage());
+
+                Snackbar.make(findViewById(R.id.weatherDetails), getString(R.string.Error) + t.getMessage(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
+                Log.i("apiError","Error: "+getString(R.string.Error) + t.getMessage());
             }
 
         });

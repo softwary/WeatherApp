@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/weatherDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="10"
@@ -16,6 +17,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="20sp"
         android:textColor="@color/colorPrimaryDark"
         android:text="@string/city_name_goes_here"/>
 
