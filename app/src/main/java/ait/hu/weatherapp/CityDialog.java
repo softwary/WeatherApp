@@ -8,6 +8,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -48,14 +49,14 @@ public class CityDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View rootView = inflater.inflate(R.layout.dialog, null);
 
-
-        etCity = rootView.findViewById(R.id.etCity);
+        etCity = (EditText) rootView.findViewById(R.id.etCity);
 
         builder.setView(rootView);
 
         builder.setPositiveButton("Save City", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
             }
         });
 
@@ -76,10 +77,10 @@ public class CityDialog extends DialogFragment {
                     if (!TextUtils.isEmpty(etCity.getText())) {
 
                         City city = new City(etCity.getText().toString());
-
+                        Log.i("newCity", "This is the city name you just entered" +
+                                " in the dialog: " + city.getCityName());
                         cityHandler.onNewCityCreated(city);
 
-                        /*may be a problem? vvvvv*/
                         d.dismiss();
                     } else {
                         etCity.setError(getString(R.string.null_error));

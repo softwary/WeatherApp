@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/itemRow"
     android:layout_width="match_parent"
-    android:layout_height="0dp"
+    android:layout_height="wrap_content"
     android:layout_weight="3"
     android:background="?android:attr/selectableItemBackground"
     android:clickable="true"
@@ -12,29 +12,26 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/row_padding_vertical"
-    android:weightSum="4">
-
-
-    <ImageView
-        android:id="@+id/ivWeatherIcon"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:cropToPadding="true"
-        android:src="@mipmap/ic_launcher" />
-
+    android:weightSum="6">
 
     <TextView
-        android:id="@+id/tvCity"
+        android:id="@+id/tvCityRow"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="4.5"
         android:maxLines="1"
         android:padding="10dp"
         android:text="@string/City"
-        android:textColor="@color/colorPrimary"
-        android:textSize="14sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
         android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1.5"
+        android:text="@string/Details"/>
 
 
 </LinearLayout>

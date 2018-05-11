@@ -1,11 +1,14 @@
 package ait.hu.weatherapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +17,9 @@ import java.util.List;
 
 import ait.hu.weatherapp.Data.AppDatabase;
 import ait.hu.weatherapp.Data.City;
+import ait.hu.weatherapp.MainActivity;
 import ait.hu.weatherapp.R;
+import ait.hu.weatherapp.WeatherDetails;
 import ait.hu.weatherapp.touch.CityTouchHelperAdapter;
 
 
@@ -22,23 +27,15 @@ public class CityRecyclerAdapter
         extends RecyclerView.Adapter<CityRecyclerAdapter.ViewHolder>
         implements CityTouchHelperAdapter {
 
-
-    public List<City> getCityList() {
-        return cityList;
-    }
-
-
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView ivWeatherIcon;
-        public TextView tvCity;
-
-
+        public TextView tvCityRow;
+        public Button btnArrow;
 
         public ViewHolder(View cityView) {
             super(cityView);
-            ivWeatherIcon = cityView.findViewById(R.id.ivWeatherIcon);
-            tvCity = cityView.findViewById(R.id.tvCity);
+            tvCityRow = cityView.findViewById(R.id.tvCityRow);
+            btnArrow = cityView.findViewById(R.id.btnArrow);
         }
     }
 
@@ -65,12 +62,21 @@ public class CityRecyclerAdapter
     public void onBindViewHolder(@NonNull final ViewHolder holder,
                                  int position) {
 
-        // must adjust to what the weather actually is though
-        //holder.ivWeatherIcon.setImageResource(R.id.cloudy);
-
-
-        holder.tvCity.setText(
+        holder.tvCityRow.setText(
                 cityList.get(holder.getAdapterPosition()).getCityName());
+
+
+        holder.btnArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(v.getContext(), WeatherDetails.class);
+                intent.putExtra("cityWeather", cityList.get(holder.getAdapterPosition()).getCityName());
+                context.startActivity(intent);
+                Log.i("clickDetails", "This is the city getting passed: "+
+                        cityList.get(holder.getAdapterPosition()).getCityName());
+            }
+        });
 
 
     }
