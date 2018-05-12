@@ -6,9 +6,12 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import ait.hu.weatherapp.Data.Weather;
 import ait.hu.weatherapp.Data.WeatherResult;
@@ -29,6 +32,9 @@ public class WeatherDetailsActivity extends AppCompatActivity {
     private TextView tvWDCoord;
     private TextView tvWDVisibility;
     private TextView tvWDWinds;
+    private TextView tvWDPressure;
+    private TextView tvWDMainDescription;
+    private ImageView ivWeatherIcon;
 
 
     private static final String URL_BASE =
@@ -47,10 +53,14 @@ public class WeatherDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String cityName = intent.getStringExtra("cityWeather");
 
+
+        ivWeatherIcon = findViewById(R.id.ivWeatherIcon);
         tvWDTemperature = findViewById(R.id.tvWDTemperature);
         tvWDCoord = findViewById(R.id.tvWDCoord);
         tvWDVisibility = findViewById(R.id.tvWDVisibility);
+        tvWDPressure = findViewById(R.id.tvWDPressure);
         tvWDWinds = findViewById(R.id.tvWDWinds);
+        tvWDMainDescription = findViewById(R.id.tvWDMainDescription);
 
 
         tvWDCity = findViewById(R.id.tvWDCity);
@@ -68,23 +78,63 @@ public class WeatherDetailsActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<WeatherResult> call, Response<WeatherResult> response) {
 
+                try {
+                    String mainDescription = "" + response.body().getWeather().get(0).getDescription();
+                    tvWDMainDescription.setText(mainDescription);
+                } catch (Exception e) {
+                    getString(R.string.temperatureError);
+                }
 
-                String temperature = "" + response.body().getMain().getTemp().toString();
-                tvWDTemperature.setText(getString(R.string.tvTemperature) + temperature);
+
+                try {
+                    String temperature = " " + response.body().getMain().getTemp().toString();
+                    tvWDTemperature.setText(getString(R.string.tvTemperature) + temperature);
+                } catch (Exception e) {
+                    getString(R.string.temperatureError);
+                }
 
 
 
 
-                String coords = (String) "" + response.body().getCoord();
+                //Glide.with(context).load("http://goo.gl/h8qOq7").into(ivWeatherIcon);
+                try {
+                    Integer icon = response.body().getId();
+                    ivWeatherIcon.setImageResource(icon);
+                } catch (Exception e) {
+                    getString(R.string.IconError);
+                }
+
+
+                try {
+                String pressure = " "+ response.body().getMain().getPressure();
+                tvWDPressure.setText(getString(R.string.pressure) + pressure);
+                } catch (Exception e) {
+                    getString(R.string.PressureError);
+                }
+
+
+                try {
+                String coords = (String) " longitude: " + response.body().getCoord().getLon() +
+                        "; latitude: "+ response.body().getCoord().getLat() ;
                 tvWDCoord.setText(getString(R.string.tvCoordinates) + coords);
+                } catch (Exception e) {
+                    getString(R.string.CoordinatesError);
+                }
 
-                String visibility = ""+ response.body().getVisibility().toString();
+                try {
+
+                    String visibility = " "+ response.body().getVisibility().toString();
                 tvWDVisibility.setText(getString(R.string.tvVisibility) + visibility);
+                } catch (Exception e) {
+                    getString(R.string.VisibilityError);
+                }
 
-
-                String winds = "" + response.body().getWind().toString();
+                try {
+                String winds = " " + response.body().getWind().toString();
                 tvWDWinds.setText(getString(R.string.tvWinds) +winds);
-
+                } catch (Exception e) {
+                    getString(R.string.WindsError);
+                }
 
             }
 
@@ -95,8 +145,7 @@ public class WeatherDetailsActivity extends AppCompatActivity {
                 Snackbar.make(findViewById(R.id.weatherDetails), getString(R.string.Error) + t.getMessage(), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
 
-                Log.i("apiError","Error: "+getString(R.string.Error) + t.getMessage());
-            }
+              }
 
         });
 

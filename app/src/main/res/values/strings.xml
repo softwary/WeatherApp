@@ -28,4 +28,12 @@
     <string name="tvCoordinates">Coordinates: </string>
     <string name="tvVisibility">Visibility: </string>
     <string name="tvWinds">Winds: </string>
+    <string name="pressure">Pressure: </string>
+    <string name="MainDescription">MainDescription: </string>
+    <string name="temperatureError">The temperature is not available at this time</string>
+    <string name="PressureError">The pressure is not available at this time</string>
+    <string name="CoordinatesError">The Coordinates are not available at this time</string>
+    <string name="VisibilityError">The visbility is not available at this time</string>
+    <string name="WindsError">The wind is not available at this time</string>
+    <string name="IconError">The icon is not available at this time</string>
 </resources>

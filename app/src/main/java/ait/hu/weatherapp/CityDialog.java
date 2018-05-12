@@ -76,9 +76,8 @@ public class CityDialog extends DialogFragment {
                 public void onClick(View v) {
                     if (!TextUtils.isEmpty(etCity.getText())) {
 
+
                         City city = new City(etCity.getText().toString());
-                        Log.i("newCity", "This is the city name you just entered" +
-                                " in the dialog: " + city.getCityName());
                         cityHandler.onNewCityCreated(city);
 
                         d.dismiss();

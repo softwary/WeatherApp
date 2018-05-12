@@ -4,13 +4,15 @@
     android:id="@+id/weatherDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
+    android:weightSum="14"
     android:background="@color/colorPrimary"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical">
+
+
 
     <TextView
         android:id="@+id/tvWDCity"
@@ -22,7 +24,21 @@
         android:textSize="20sp"
         android:textColor="@color/colorPrimaryDark"
         android:text="@string/city_name_goes_here"/>
-
+    <ImageView
+        android:id="@+id/ivWeatherIcon"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_horizontal"
+        android:src="@drawable/ic_launcher_background"
+        />
+    <TextView
+        android:id="@+id/tvWDMainDescription"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/MainDescription"/>
     <TextView
         android:id="@+id/tvWDTemperature"
         android:layout_width="match_parent"
@@ -30,6 +46,14 @@
         android:layout_weight="2"
         android:textColor="@color/colorPrimaryDark"
         android:text="@string/temperature_goes_here"/>
+    <TextView
+        android:id="@+id/tvWDPressure"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/pressure"/>
+
     <TextView
         android:id="@+id/tvWDCoord"
         android:layout_width="match_parent"
